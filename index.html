@@ -1,0 +1,203 @@
+<!doctype html>
+<head>
+<!--
+COPYRIGHT NOTICE:
+This software is freely available for modification and redistribution under the the Mozilla Public License Version 2.0.
+The original source can be found at github.com/usdfhabbo
+You may not remove this copyright notice.
+-->
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+</head>
+<body>
+<small><i>Coded by <a href="https://www.habbo.com/profile/mcdigginit">McDigginIt</a> for <a href="http://habbousdf.com/">Habbo's United States Defense Force</a></i></small>
+<h2>MST Calculator</h2>
+<div id="data">
+    <form id="soldier">
+		<ul>
+			<li><label for="name">Name:</label> <br>
+        		<input id="name" name="name" type="text" required>
+        	</li>
+        	<li><label for="joinDate">Join Date:</label> <br>
+        		<input id="joinDate" name="joinDate" type="text" required></li>
+        	<li><label for="lastOnline">Last Online:</label> <br>
+        		<input id="lastOnline" name="lastOnline" type="text" required></li>
+        	<li><label for="rank">Rank: </label>
+		        <select id="rank" name="rank" style="width: 45px;">
+					<option value="1209600000">E4 - Petty Officer Third Class / Corporal / Senior Airman</option>
+					<option value="1814400000">E5 - Petty Officer Second Class / Sergeant / Staff Sergeant</option>
+					<option value="2419200000">E6 - Petty Officer First Class / Staff Sergeant / Technical Sergeant</option>
+					<option value="3024000000">E7 - Chief Petty Officer / Gunnery Sergeant / Sergeant First Class / Master Sergeant</option>
+					<option value="3628800000">E8(1) -  Master Sergeant</option>
+					<option value="4233600000">E8(2) - Senior Chief Petty Officer / First Sergeant / Senior Master Sergeant</option>
+					<option value="6048000000">E9 - Master Chief Petty Officer / Master Gunnery Sergeant / Sergeant Major / Chief Master Sergeant</option>
+					<option value="7862400000">CWO2</option>
+					<option value="9072000000">CWO3</option>
+					<option value="10281600000">CWO4</option>
+					<option value="12096000000">CWO5</option>
+					<option value="14515200000">O1 - Ensign / Second Lieutenant / GS-1</option>
+					<option value="16934400000">O2 - Lieutenant Junior Grade / First Lieutenant / GS-2</option>
+					<option value="19353600000">O3 - Lieutenant / Captain / GS-3</option>
+					<option value="24192000000">O4 - Lieutenant Commander / Major / GS-4</option>
+		        </select>
+		    </li>
+        	<li><label for="dutyType">Duty Type:</label>
+				<select name="dutyType" id="dutyType" style="width: 65px">
+					<option value="AD">Active Duty</option>
+					<option value="R1">R1 - Active Duty Reserves</option>
+					<option value="R2">R2 - Inactive Duty Reserves</option>
+				</select>
+        	<li><input class="button" type="button" value="DO IT" onclick="AddData()"></li>
+    </form>
+</div>
+
+<h3>Preview</h3>
+<p><small>This is a rough preview of what the end result will look like. NOTE: The header of the PM is not included here, but is included in the BBCode output below.</small></p>
+<table style="text-align:center;">
+<thead>
+	<tr>
+		<td style="text-align:center;border:1px solid rgb(0, 0, 0);padding:3px;">
+			<b><u>Name</u></b>
+		</td>
+		<td style="text-align:center;border:1px solid rgb(0, 0, 0);padding:3px;">
+			<b><u>Rank</u></b>
+		</td>
+		<td style="text-align:center;border:1px solid rgb(0, 0, 0);padding:3px;">
+			<b><u>MST Check</u></b>
+		</td>
+		<td style="text-align:center;border:1px solid rgb(0, 0, 0);padding:3px;">
+			<b><u>Reached/Passed MST</u></b>
+		</td>
+		<td style="text-align:center;border:1px solid rgb(0, 0, 0);padding:3px;">
+			<b><u>Last login</u></b>
+		</td>
+		<td style="text-align:center;border:1px solid rgb(0, 0, 0);padding:3px;">
+			<b><u>Duty Type</u></b>
+		</td>
+	</tr>
+</thead>
+<tbody id="codepreview"></tbody>
+</table>
+
+<h3>BBCode</h3>
+<p><small>This is your generated BBCode. Copy and paste the code below into a new PM.</small></p>
+<code id="bbcodeoutput">[div align="center"][img src="http://i57.tinypic.com/2lvi785.png" style="max-width:100%;"][/div][div align="center"][font color="#f8f9fa"][i][font size="3"][div align="center"]United States Defense Force[/div]Office of Manpower and Personnel[/font][/i][/font][/div][div align="center"]The following table has USDF [font color="#32e619"]Marines/Army/Navy/Air Force[/font] personnel from [font color="#32e619"]Paygrade-Paygrade[/font] that are either within seven days of their maximum service time, or have passed their maximum service time, sorted in descending order by days over MST. SgtMajs/CMDCMs/CSMs/CCMs and JNCO/SNCO selectees have not been checked. All information is from the USDF PTS, and is correct as of [font color="#32e619"]Time/Date.[/font][/div][hr][div align="center"][b][font color="#32e619"]Paygrade - Paygrade[/font][font color="#ffeb00"] Personnel MST Check[/font][/b][table style="text-align:center;"][tbody][tr][td style="text-align:center;border:1px solid rgb(0, 0, 0);padding:3px;"][b][u]Name[/u][/b][/td][td style="text-align:center;border:1px solid rgb(0, 0, 0);padding:3px;"][b][u]Rank[/u][/b][/td][td style="text-align:center;border:1px solid rgb(0, 0, 0);padding:3px;"][b][u]MST Check[/u][/b][/td][td style="text-align:center;border:1px solid rgb(0, 0, 0);padding:3px;"][b][u]Reached/Passed MST[/u][/b][/td][td style="text-align:center;border:1px solid rgb(0, 0, 0);padding:3px;"][b][u]Last login[/u][/b][/td][td style="text-align:center;border:1px solid rgb(0, 0, 0);padding:3px;"][b][u]Duty Type[/u][/b][/td][/tr]</code>[/tbody][/table][/div]
+
+
+<script>
+// Pre-exit warning. Give user a warning message before they leave the page, this is to prevent loss of data/reports.
+$(window).bind('beforeunload', function(){
+  return 'Your data has not been saved, if you leave this page all data will be lost.  Are you sure you want to leave?';
+});
+
+// Begin processing the form input.
+function AddData() {
+        var codePreview = "";
+        var bbcodeOutput = "";
+        var name = document.getElementById("name").value;
+        var joinDate = document.getElementById("joinDate").value;
+        var lastOnline = document.getElementById("lastOnline").value;
+        var rank = document.getElementById("rank").value;
+        var dutyType = document.getElementById("dutyType").value;
+
+        // Generates Today's date
+		Date.prototype.yyyymmdd = function() { 
+			var yyyy = this.getFullYear().toString();
+			var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
+			var dd  = this.getDate().toString();
+			return yyyy + ", " + (mm[1]?mm:"0"+mm[0]) + ", " + (dd[1]?dd:"0"+dd[0]); // padding
+		};
+		d = new Date(); // Create date
+		var today = Date.parse(d.yyyymmdd()); // Convert created date then Parse into UNIX
+
+		// Process joinDate input
+		var filterdate = joinDate.replace(/(\d+)(?:st|nd|rd|th)/, "$1"); // Remove ordinals from day.
+		var joined = Date.parse(filterdate); // Parse into UNIX
+
+		// How many days until MST or how many days passed. Passed is a negative value, days until MST is reached returns positive.
+		var mst = Math.round((today - joined) - +rank); // Calculate with MST included. MST is assigned from 'rank'
+		var days = Math.round((mst)/1000/60/60/24); // Convert to days.
+
+		// Convert into MST check messages
+		if (days < -8) {
+			alert("More than 7 days until MST");
+			throw new Error("More than 7 days, invalid.");
+		} else if (days < 0) {
+			mstCheck = days + " days until MST is met.";
+			reachedPassed = "MST not reached";
+		} else if (days == 0) {
+			mstCheck = "MST was met on the day of this report";
+			reachedPassed = "MST reached";
+		} else {
+			mstCheck = "MST was met " + days + " days ago.";
+			reachedPassed = "Passed";
+		}
+
+		// Convert rank values to names
+		if (rank == 1209600000) {
+			rankName = "E4";
+		} else if (rank == 1814400000) {
+			rankName = "E5";
+		} else if (rank == 2419200000) {
+			rankName = "E6";
+		} else if (rank == 3024000000) {
+			rankName = "E7";
+		} else if (rank == 3628800000) {
+			rankName = "E8(1)";
+		} else if (rank == 4233600000) {
+			rankName = "E8(2)";
+		} else if (rank == 6048000000) {
+			rankName = "E9";
+		} else if (rank == 7862400000) {
+			rankName = "CWO2";
+		} else if (rank == 9072000000) {
+			rankName = "CWO3";
+		} else if (rank == 10281600000) {
+			rankName = "CWO4";
+		} else if (rank == 12096000000) {
+			rankName = "CWO5";
+		} else if (rank == 14515200000) {
+			rankName = "O1";
+		} else if (rank == 16934400000) {
+			rankName = "O2";
+		} else if (rank == 19353600000) {
+			rankName = "O3 - Lieutenant / Captain / GS-3";
+		} else if (rank == 24192000000) {
+			rankName = "O4 - Lieutenant Commander / Major / GS-4";
+		} else {
+			alert("A rank error has occurred. Please be sure to speak with McDigginIt about this error and include what you used as input into the form");
+		}
+
+		// Variables for preview table code
+		var openTd = "<td style=\"text-align:center;border:1px solid rgb(0, 0, 0);padding:3px;\"><font color=\"#32e619\">";
+		var closeTd = "</font></td>";
+
+		// Generate Preview
+		codePreview += "<tr>";
+		codePreview +=  openTd + name + closeTd;
+		codePreview +=  openTd + rankName + closeTd;
+		codePreview +=  openTd + mstCheck + closeTd;
+		codePreview +=  openTd + reachedPassed + closeTd;
+		codePreview +=  openTd + lastOnline + closeTd;
+		codePreview +=  openTd + dutyType + closeTd;
+		codePreview +=  "</tr>";
+		$(codePreview).appendTo("#codepreview");
+
+		// Variables for bbcode tables
+		var openbbTd = '[td style="text-align:center;border:1px solid rgb(0, 0, 0);padding:3px;"][font color="#32e619"]';
+		var closebbTd = "[/font][/td]";
+		//Generate BBCode Output
+		bbcodeOutput += "[tr]";
+		bbcodeOutput +=  openbbTd + name + closebbTd;
+		bbcodeOutput +=  openbbTd + rankName + closebbTd;
+		bbcodeOutput +=  openbbTd + mstCheck + closebbTd;
+		bbcodeOutput +=  openbbTd + reachedPassed + closebbTd;
+		bbcodeOutput +=  openbbTd + lastOnline + closebbTd;
+		bbcodeOutput +=  openbbTd + dutyType + closebbTd;
+		bbcodeOutput +=  "[/tr]";
+		$("#bbcodeoutput").after(bbcodeOutput);
+
+		document.getElementById("soldier").reset();
+
+}
+</script>
+</body>
