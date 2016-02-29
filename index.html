@@ -43,6 +43,7 @@ You may not remove this copyright notice.
         	<li><label for="dutyType">Duty Type:</label>
 				<select name="dutyType" id="dutyType" style="width: 65px">
 					<option value="AD">Active Duty</option>
+					<option value="OL">OL - On Leave</option>
 					<option value="R1">R1 - Active Duty Reserves</option>
 					<option value="R2">R2 - Inactive Duty Reserves</option>
 				</select>
@@ -119,7 +120,8 @@ function AddData() {
 
 		// Convert into MST check messages
 		if (days < -8) {
-			alert("More than 7 days until MST");
+			alert("More than 7 days until MST. This soldier should not be added to the report.");
+			document.getElementById("soldier").reset();
 			throw new Error("More than 7 days, invalid.");
 		} else if (days < 0) {
 			mstCheck = days + " days until MST is met.";
