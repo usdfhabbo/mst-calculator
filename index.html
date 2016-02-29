@@ -17,7 +17,7 @@
         $('#main_content').headsmart()
       })
     </script>
-    <title>MST-Calculator by McDigginIt</title>
+    <title>MST Calculator by McDigginIt</title>
   </head>
 
   <body>
@@ -27,7 +27,7 @@
       <header>
         <span class="ribbon-outer">
           <span class="ribbon-inner">
-            <h1>MST-Calculator</h1>
+            <h1>MST Calculator</h1>
             <h2>A simple app that calculates a soldiers Maximum Service Time and then outputs BBCode. To be used for OMP MST reports.</h2>
           </span>
           <span class="left-tail"></span>
@@ -49,7 +49,8 @@
     	<h3>
 			<a id="before-you-use" class="anchor" href="#before-you-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Before you use this tool..</h3>
 
-			<p>Before using this tool, it's important you run a few checks and follow a few basic instructions. <strong>Ensure you visit the <a href="info.html">Information Page</a> for instructions and other general information.</strong></p>
+			<p>Before using this tool, it's important you run a few checks and follow a few basic instructions. <br>
+			<strong>IMPORTANT: Ensure you visit the <a href="info.html">Information Page</a> for instructions and other information before using this generator. <i>It is critical that you do so in order to ensure the accuracy of your report</i></strong></p>
 
 		<h3>
 			<a id="input-info" class="anchor" href="#input-info" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Input Soldier Info</h3>
@@ -184,7 +185,7 @@ function AddData() {
 			document.getElementById("soldier").reset();
 			throw new Error("More than 7 days, invalid.");
 		} else if (days < 0) {
-			mstCheck = days + " days until MST is met.";
+			mstCheck = Math.abs(days) + " days until MST is met.";
 			reachedPassed = "MST not reached";
 		} else if (days == 0) {
 			mstCheck = "MST was met on the day of this report";
