@@ -124,7 +124,7 @@ function AddData() {
 			document.getElementById("soldier").reset();
 			throw new Error("More than 7 days, invalid.");
 		} else if (days < 0) {
-			mstCheck = days + " days until MST is met.";
+			mstCheck = Math.abs(days) + " days until MST is met.";
 			reachedPassed = "MST not reached";
 		} else if (days == 0) {
 			mstCheck = "MST was met on the day of this report";
